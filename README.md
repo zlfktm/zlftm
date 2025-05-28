@@ -1,6 +1,4 @@
-Lee hyeon bin header
-type=transparent&fontColor=F5C0CA&text=YeonJin's%20GitHub%20&height=150&fontSize=60&descAlignY=75&descAlign=60" alt="YeonJin's GitHub">
-    </div>
+
 <div align= "center">
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🧑‍💻 Contact me 🧑‍💻 </h2
          <a href=zkfjtn122>  <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=Instagram&logoColor=white&link=https://www.instagram.com/인 스 타 아 이 디"> </a>
