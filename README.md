@@ -3,7 +3,7 @@
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🧑‍💻 Contact me 🧑‍💻 </h2>
     <div align= "center">  
          <a href=zlfktm122> <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white&link= a50639174@gmail.com"> </a>
-         <a href=https://www.instagram.com/인스타그램 아이디> <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=Instagram&logoColor=white&link=https://www.instagram.com/인 스 타 아 이 디"> </a>
+    
          <a href=mailto:a50639174@gmail.com> <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=Gmail&logoColor=white&link=mailto:=a50639174@gmail.com"> </a>
           </div><br>
     <div align= "center">  </div> 
