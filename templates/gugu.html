@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ dan }}단</title>
+</head>
+<body>
+    <h1>{{ dan }}단</h1>
+    {% for result in results %}
+        <p>{{ dan }} x {{ forloop.counter }} = {{ result|slice:"-1"|join:"" }}</p>
+    {% endfor %}
+</body>
+</html>
