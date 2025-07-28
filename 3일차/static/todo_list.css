@@ -1,0 +1,90 @@
+/* 공통 폰트, 배경 */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #F3E9DC;
+    margin: 0;
+    padding: 20px;
+    color: #2f3640;
+}
+
+/* 네비게이션 우측 정렬 박스 */
+.nav-right {
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+/* 로그아웃 폼 버튼 */
+.logout-form {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.logout-form button {
+    background-color: #D96F32;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-form button:hover {
+    background-color: #F8B259;
+}
+
+/* 사용자 이름 */
+.username {
+    font-weight: bold;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+/* 로그인 / 회원가입 링크 */
+.nav-right a {
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #D96F32;
+    transition: color 0.3s ease;
+}
+
+.nav-right a:hover {
+    color: #F8B259;
+}
+
+/* 제목 */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* TODO 리스트 스타일 */
+.todo-list {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.todo-list li {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease;
+}
+
+.todo-list li a {
+    text-decoration: none;
+    color: #2f3640;
+    font-weight: 600;
+    display: block;
+}
+
+.todo-list li:hover {
+    background-color: #f9f2e7;
+}
+

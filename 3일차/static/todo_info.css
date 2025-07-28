@@ -1,0 +1,46 @@
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #F3E9DC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.detail-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    margin: 40px auto;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #2f3640;
+    text-align: center;
+}
+
+.status {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: #444;
+}
+
+.description {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.meta {
+    font-size: 13px;
+    color: #999;
+}

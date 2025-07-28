@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO LIST</title>
+    <link rel="stylesheet" href="{% static 'todo_list.css' %}" />
+</head>
+<body>
+
+{% if request.user.is_authenticated %}
+<nav>
+    <div style = "text-align : right">
+        <form action="{% url 'logout' %}" method='POST' style="display:inline">
+            {% csrf_token %}
+            <button>로그아웃</button>
+        </form>
+        {{ request.user.username }}
+    </div>
+</nav>
+
+<h1>TODO LIST</h1>
+<ul class="todo-list">
+    {% for todo in todos %}
+    <li><a href="{% url 'todo_info' todo.id %}">{{ todo.title }}</a></li>
+    {% empty %}
+    <li>등록된 TODO가 없습니다.</li>
+    {% endfor %}
+</ul>
+
+{% else %}
+<nav>
+    <div style = "text-align : right">
+        <a href="{% url 'login' %}">로그인</a>
+        <a href="{% url 'signup' %}">회원가입</a>
+    </div>
+</nav>
+<h1>로그인 또는 회원가입이 필요합니다.</h1>
+{% endif %}
+
+</body>
+</html>
