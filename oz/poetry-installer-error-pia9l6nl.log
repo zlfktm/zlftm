@@ -1,0 +1,8 @@
+dyld[58736]: Library not loaded: @executable_path/../lib/libpython3.12.dylib
+  Referenced from: <C52F33D7-CDE0-3C12-B153-B6C7E6AA1600> /Users/admin/Library/Application Support/pypoetry/venv/bin/python3.12
+  Reason: tried: '/Users/admin/Library/Application Support/pypoetry/venv/lib/libpython3.12.dylib' (no such file)
+
+Traceback:
+
+  File "<stdin>", line 937, in main
+  File "<stdin>", line 576, in run

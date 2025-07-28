@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>블로그 목록</title>
+</head>
+<body>
+    <nav>
+        <div style="text-align:right">
+            {% if user.is_authenticated %}
+                <form action="{% url 'logout' %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit">로그아웃</button>
+                </form>
+                <span>{{ request.user.username }}</span>
+            {% else %}
+                <a href="{% url 'login' %}">로그인</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <h1>블로그 목록 {{ count }}</h1>
+
+    {% for blog in blogs %}
+        <p>
+            <a href="/blog/{{ blog.pk }}/">
+                {{ blog.title }}
+            </a>
+            - <small>{{ blog.created_at|date:"Y-m-d" }}</small>
+        </p>
+    {% endfor %}
+</body>
+</html>
