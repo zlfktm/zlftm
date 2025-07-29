@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Project</title>
+</head>
+<body>
+    <nav>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <a href="{% url 'blog_list' %}">홈</a>
+            </div>
+            <div>
+                {% if request.user.is_authenticated %}
+                    <form action="{% url 'logout' %}" method="POST" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit">로그아웃</button>
+                    </form>
+                    <span>{{ request.user.username }}</span>
+                {% else %}
+                    <a href="{% url 'login' %}">로그인</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
