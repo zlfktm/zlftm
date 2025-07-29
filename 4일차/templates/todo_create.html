@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}TODO 생성{% endblock %}
+
+{#{% block extra_css %}#}
+{#    <link rel="stylesheet" href="{% static 'todo_info.css' %}">#}
+{#{% endblock %}#}
+
+{% block content %}
+    <h1>TODO 작성</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>생성</button>
+    </form>
+
+{% endblock %}

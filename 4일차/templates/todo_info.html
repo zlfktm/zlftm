@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}TODO INFO{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'todo_info.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+
+    <a href="{% url 'todo_list' %}">목록으로 돌아가기</a>
+
+    <h1>{{ todo.title }}</h1>
+    <hr>
+    <p class="status">
+        완료 여부 :
+        {% if todo.is_completed %}
+            ✅️
+        {% else %}
+            ☐
+        {% endif %}
+    </p>
+    <p class="description">{{ todo.description }}</p>
+    <p>📅 시작일 : {{ todo.start_date }}</p>
+    <p>⏰ 마감일 : {{ todo.end_date }}</p>
+    <hr>
+    <p class="meta">생성 : {{ todo.created_at }}</p>
+    <p class="meta">수정 : {{ todo.updated_at }}</p>
+
+    <br>
+
+    <a href="{% url 'todo_update' todo.pk %}">수정</a>
+
+    <form action="{% url 'todo_delete' todo.pk %}" method="POST" style="display:inline">
+        {% csrf_token %}
+        <button>삭제</button>
+    </form>
+</div>
+
+{% endblock %}

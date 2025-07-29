@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}TODO{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+{% if request.user.is_authenticated %}
+<nav>
+    <div style = "text-align : right">
+        <form action="{% url 'logout' %}" method='POST' style="display:inline">
+            {% csrf_token %}
+            <button>로그아웃</button>
+        </form>
+        {{ request.user.username }}
+    </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+{% else %}
+<nav>
+    <div style = "text-align : right">
+        <a href="{% url 'login' %}">로그인</a>
+        <a href="{% url 'signup' %}">회원가입</a>
+    </div>
+</nav>
+<h1>로그인 또는 회원가입이 필요합니다.</h1>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}TODO 수정{% endblock %}
+
+{#{% block extra_css %}#}
+{#    <link rel="stylesheet" href="{% static 'todo_info.css' %}">#}
+{#{% endblock %}#}
+
+{% block content %}
+    <h1>TODO 수정</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>수정</button>
+    </form>
+
+{% endblock %}
