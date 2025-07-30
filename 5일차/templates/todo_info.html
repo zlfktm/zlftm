@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}TODO INFO{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'todo_info.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+
+    <a href="{% url 'cbv_todo_list' %}">목록으로 돌아가기</a>
+
+    <h1>{{ dict.title }}</h1>
+    <hr>
+    <p class="status">
+        완료 여부 :
+        {% if dict.is_completed %}
+            ✅️
+        {% else %}
+            ☐
+        {% endif %}
+    </p>
+    <p class="description">{{ dict.description }}</p>
+    <p>📅 시작일 : {{ dict.start_date }}</p>
+    <p>⏰ 마감일 : {{ dict.end_date }}</p>
+    <hr>
+    <p class="meta">생성 : {{ dict.created_at }}</p>
+    <p class="meta">수정 : {{ dict.updated_at }}</p>
+
+    <br>
+
+    <a href="{% url 'cbv_todo_update' dict.id %}">수정</a>
+
+    <form id="delete_form" action="{% url 'cbv_todo_delete' dict.id %}" method="POST" style="display:inline">
+        {% csrf_token %}
+        <button id="delete_btn" type="button">삭제</button>
+    </form>
+</div>
+
+{% block js %}
+    <script>
+        document.querySelector('#delete_btn').addEventListener('click', function() {
+            if(confirm('삭제하시겠습니까?')){
+                document.querySelector('#delete_form').submit();
+            }
+        })
+    </script>
+{% endblock %}
+
+{% endblock %}

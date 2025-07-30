@@ -1,0 +1,59 @@
+
+/* 공통 폰트, 배경 */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #F3E9DC;
+    margin: 0;
+    padding: 20px;
+    color: #2f3640;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+
+/* 네비게이션 우측 정렬 박스 */
+.nav-right {
+    text-align: right;
+    margin-bottom: 0px;
+}
+
+.logout-button {
+    background-color: white;
+    color: #2f3640;
+    border: 0px solid #ccc;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    padding: 6px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+    margin-left: 10px;
+}
+
+/* 사용자 이름 */
+.username {
+    font-weight: bold;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+/* 로그인 / 회원가입 링크 */
+.nav-right a {
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #D96F32;
+    transition: color 0.3s ease;
+}
+
+.nav-right a:hover {
+    color: #F8B259;
+}
