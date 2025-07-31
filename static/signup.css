@@ -1,0 +1,72 @@
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #F3E9DC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.signup-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin-top: 60px;   /* ✅ 위쪽 여백 */
+    margin-bottom: 60px; /* ✅ 아래쪽 여백 */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2f3640;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form p {
+    margin-bottom: 15px;
+}
+
+ul, .helptext {
+    font-size: 14px;         /* 글자 작게 */
+    color: #999999;          /* 연한 회색 */
+    display: block;          /* 줄바꿈 */
+    margin-top: 4px;         /* 약간 위 여백 */
+    font-weight: normal;     /* 기본보다 가벼운 글씨 */
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #353b48;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #dcdde1;
+    border-radius: 6px;
+    width: 100%;
+}
+
+button {
+    background-color: #D96F32; /* ✅ 주황색 */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #F8B259; /* ✅ 진한 주황색 */
+}

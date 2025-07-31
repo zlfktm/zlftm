@@ -1,0 +1,20 @@
+from django.contrib import admin
+from todo.models import Todo, Comment
+
+admin.site.register(Comment)
+
+class CommentInline(admin.TabularInline):
+    model = Comment
+    fields = ['message', 'user']
+    extra = 1
+
+@admin.register(Todo)
+class TodoAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title', 'is_completed','created_at','updated_at']
+    list_display_links = ['title']
+    list_filter = ['title','is_completed']
+
+    inlines = [
+        CommentInline,
+    ]
+
