@@ -1,0 +1,77 @@
+{#<div>#}
+{#    {% if page_obj.has_previous %}#}
+{#        <a href="?page=1{% if request.GET.q %}&q={{ reqeust.GET.q }}{%endif%}"><<</a>#}
+{#        <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ reqeust.GET.q }}{%endif%}"><</a>#}
+{#    {% endif %}#}
+{##}
+{#    {% if page_obj.number|add:-2 > 1 %}#}
+{#        <a href="?page={{ page_obj.number|add:-3}}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&hellip;</a>#}
+{#    {% endif %}#}
+{##}
+{#    {% for i in page_obj.paginator.page_range %}#}
+{#        {% if page_obj.number == i %}#}
+{#            <span>{{ i }}</span>#}
+{#        {% elif i > page_obj.number|add:-3 and i < page_obj.number|add:3 %}#}
+{#            <a href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>#}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+{##}
+{#    {% if page_obj.number|add:2 < page_obj.paginator.num_pages %}#}
+{#        <a href="?page={{ page_obj.number|add:3 }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">&hellip;</a>#}
+{#    {% endif %}#}
+{##}
+{#    {% if page_obj.has_next %}#}
+{#        <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ reqeust.GET.q }}{%endif%}">></a>#}
+{#        <a href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.q %}&q={{ reqeust.GET.q }}{%endif%}">>></a>#}
+{#    {% endif %}#}
+{#</div>#}
+
+<nav aria-label="페이지 네비게이션">
+  <ul class="pagination justify-content-center" style="margin-top: 20px;">
+    {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if fragment %}#{{ fragment }}{% endif %}" aria-label="처음">
+          <span aria-hidden="true">&laquo;&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if fragment %}#{{ fragment }}{% endif %}" aria-label="이전">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+    {% endif %}
+
+    {% if page_obj.number|add:-2 > 1 %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.number|add:-3 }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if fragment %}#{{ fragment }}{% endif %}">&hellip;</a></li>
+    {% endif %}
+
+    {% for i in page_obj.paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="page-item active" aria-current="page">
+          <span class="page-link" href="#">{{ i }}</span>
+        </li>
+      {% elif i > page_obj.number|add:-3 and i < page_obj.number|add:3 %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if fragment %}#{{ fragment }}{% endif %}">{{ i }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.number|add:2 < page_obj.paginator.num_pages %}
+      <li class="page-item"><a class="page-link" href="?page={{ page_obj.number|add:3 }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if fragment %}#{{ fragment }}{% endif %}">&hellip;</a></li>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if fragment %}#{{ fragment }}{% endif %}" aria-label="다음">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if fragment %}#{{ fragment }}{% endif %}" aria-label="마지막">
+          <span aria-hidden="true">&raquo;&raquo;</span>
+        </a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>

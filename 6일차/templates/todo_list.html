@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}TODO LIST{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'todo_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">TODO LIST</h1>
+
+    <ul class="list-unstyled mx-auto" style="max-width: 600px;">
+        {% if request.user.is_superuser %}
+            {% for todo in object_list %}
+                <li class="mb-3 p-3 bg-white rounded shadow-sm todo-item">
+                    <a href="{% url 'cbv_todo_info' todo.id %}" class="text-decoration-none text-dark fw-semibold d-block">
+                        {{ todo.title }}
+                        <small class="text-warning ms-2">{{ todo.author }}</small>
+                    </a>
+                </li>
+            {% empty %}
+                <li class="mb-3 p-3 bg-white rounded shadow-sm todo-item">등록된 TODO가 없습니다.</li>
+            {% endfor %}
+        {% else %}
+            {% for todo in object_list %}
+                <li class="mb-3 p-3 bg-white rounded shadow-sm todo-item">
+                    <a href="{% url 'cbv_todo_info' todo.id %}" class="text-decoration-none text-dark fw-semibold d-block">
+                        {{ todo.title }}
+                    </a>
+                </li>
+            {% empty %}
+                <li class="mb-3 p-3 bg-white rounded shadow-sm todo-item">등록된 TODO가 없습니다.</li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+
+<div class="d-flex justify-content-between align-items-center mt-4 mb-3 px-5">
+    <div>
+        {% include 'pagination.html' %}
+    </div>
+
+    <div>
+        <form method="GET" class="d-inline-block me-2">
+            <input name="q" type="text" class="form-control d-inline-block w-auto" placeholder="검색어를 입력하세요."
+                   value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}">
+            <button class="btn btn-primary">검색</button>
+        </form>
+
+        <a href="{% url 'cbv_todo_create' %}" class="btn btn-outline-primary">생성</a>
+    </div>
+</div>
+
+
+</div>
+{% endblock %}
