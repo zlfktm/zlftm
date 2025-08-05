@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}TODO{% endblock %}</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/pagination.css' %}" rel="stylesheet">
+    {% block extra-css %}{% endblock %}
+</head>
+<body style="padding-top: 70px; background-color: #F3E9DC;">
+
+{% if request.user.is_authenticated %}
+<nav class="navbar navbar-light bg-light fixed-top shadow-sm">
+    <div class="container-fluid justify-content-end">
+        <span class="me-3 fw-bold">{{ request.user.username }} 님</span>
+
+        <form action="{% url 'users_login' %}" method="POST" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-secondary btn-sm rounded">로그아웃</button>
+        </form>
+    </div>
+</nav>
+
+{% else %}
+<nav class="navbar navbar-light bg-light fixed-top shadow-sm">
+    <div class="container-fluid justify-content-end">
+        <a href="{% url 'users_login' %}" class="nav-link text-primary fw-semibold me-2">로그인</a>
+        <a href="{% url 'users_signup' %}" class="nav-link text-primary fw-semibold">회원가입</a>
+    </div>
+</nav>
+{% endif %}
+
+{% block content %}{% endblock %}
+
+
+
+{#<div class="container mt-5 pt-5 text-center">#}
+{#    <h1 class="text-danger">로그인 또는 회원가입이 필요합니다.</h1>#}
+{#</div>#}
+
+
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+{% block js %}{% endblock %}
+</body>
+</html>

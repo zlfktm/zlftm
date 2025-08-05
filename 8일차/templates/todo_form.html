@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}TODO {{ sub_title }}{% endblock %}
+
+{#{% block extra_css %}#}
+{#    <link rel="stylesheet" href="{% static 'todo_info.css' %}">#}
+{#{% endblock %}#}
+
+{% block content %}
+    <div class="container my-5">
+        <div class="card shadow mx-auto" style="max-width: 700px;">
+            <div class="card-body">
+
+                <a href="{% url 'cbv_todo_list' %}" class="btn btn-link p-0 mb-3">← 목록으로</a>
+
+                <h1 class="card-title text-center mb-4">TODO {{ sub_title }}</h1>
+                <hr>
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <button type="submit" class="btn btn-primary w-30 mt-4">
+                        {% if btn_name %}
+                            {{ btn_name }}
+                        {% else %}
+                            생성
+                        {% endif %}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
